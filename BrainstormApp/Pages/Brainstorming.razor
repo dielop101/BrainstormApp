@@ -1,0 +1,21 @@
+﻿@inherits BrainstormingBase
+@page "/Brainstorming"
+
+<h1>
+    Question
+</h1>
+
+
+<ul>
+    @foreach (var answer in _answers)
+    {
+        <li>
+            @answer
+        </li>
+    }
+</ul>
+
+
+<input type="text" id="answer" @bind="_answer" class="form-control" placeholder="NEW ANSWER" />
+
+<button class="btn btn-primary" @onclick="AddAnswer" disabled="@(!IsConnected)">Click me</button>

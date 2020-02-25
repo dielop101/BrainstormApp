@@ -1,0 +1,16 @@
+﻿@inherits IndexBase
+@page "/"
+
+<EditForm Model="@_codeModel" OnValidSubmit="HandleValidCode">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText id="name" @bind-Value="_codeModel.CodeValue" class="form-control" placeholder="INSERT YOUR CODE" />
+
+    @if (!_isValid)
+    {
+        <label id="invalidCode">The code is not valid</label>
+    }
+
+    <button class="btn btn-primary" type="submit">Enter</button>
+</EditForm>
